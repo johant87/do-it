@@ -22,7 +22,7 @@ class TaskList extends React.Component {
       tasks: newTasks
     });
   }
-testwet
+
 
 render() {
     return (
