@@ -7,7 +7,7 @@ class TaskList extends React.Component {
   constructor(){
       super();
       this.state = {
-          tasks: ["test", "test",]
+          tasks: ["l", "b",]
       };
   }
 
@@ -22,7 +22,7 @@ class TaskList extends React.Component {
       tasks: newTasks
     });
   }
-
+testwet
 
 render() {
     return (

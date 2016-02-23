@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      tasks: ["Do something", "Right now!", "DO IT!"]
+      tasks: ["Do something", "Right now!", "DO IT!" , "DO IT!"]
     };
   }
 
@@ -20,17 +20,9 @@ class App extends React.Component {
     var newTasks = currentTasks.concat(task);
     this.setState({
       tasks: newTasks
+
     });
   }
-  
-  //
-  // onAddTask(taskname){
-  //   var currentTasks = this.state.tasks;
-  //   var newTasks = currentTasks.concat(taskname);
-  //   this.setState({
-  //     tasks: newTasks
-  //   });
-  // }
 
   render() {
       return (

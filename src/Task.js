@@ -4,7 +4,6 @@ class Task extends React.Component {
     constructor(){
         super();
         this.state = {
-          status: "unfinished",
           title: "test"
         };
     }
@@ -12,7 +11,6 @@ class Task extends React.Component {
 
     changeStatus(event){
       this.setState({
-        status: "finished",
         title: "done"
       });
     }
@@ -21,10 +19,10 @@ class Task extends React.Component {
     render() {
         return (
 
-                <li>{this.state.title}
+                <li>{this.props.title}
                 <button onClick=
                 {this.changeStatus.bind(this)}>
-                lol
+                task done
                 </button>
                 </li>
         );
