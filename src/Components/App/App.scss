@@ -1,0 +1,152 @@
+body {
+  background-color: #B7BBB4;
+}
+
+.container{
+  
+}
+.navbar {
+  background-color: #1D292B;
+  height: 75px;
+  text-align: center;
+}
+
+.addtask{
+  background-color: rgb(157, 157, 162);
+  height: 100px;
+  padding: 0;
+  margin: 70px 0 0 0;
+  display: block;
+  position: relative;
+}
+
+.line {
+  border-bottom-style: solid;
+  border-width: 4px;
+  border-color: black;
+  margin: 25px 0 25px 0;
+}
+
+.addtask button {
+  height: 100px;
+  width: 100px;
+  display: block;
+  position: relative;
+  float: right;
+  margin: 0;
+  background-color: black;
+}
+
+.addtask form {
+  float: left;
+}
+
+.todo {
+  background-color: rgb(195, 195, 196);
+  height: 100px;
+  margin: 25px 0 0 0;
+  border-left-style: solid;
+  border-width: 4px;
+  position: relative;
+}
+
+.green-border {
+  border-color: #50C9C6;
+}
+
+.red-border {body {
+  background-color: #B7BBB4;
+}
+
+.navbar {
+  background-color: #1D292B;
+}
+
+.addtask{
+  background-color: rgb(157, 157, 162);
+  height: 100px;
+  padding: 0;
+  margin: 70px 0 0 0;
+  display: block;
+  position: relative;
+}
+
+.line {
+  border-bottom-style: solid;
+  border-width: 4px;
+  border-color: black;
+  margin: 25px 0 25px 0;
+}
+
+.addtask button {
+  height: 100px;
+  width: 100px;
+  display: block;
+  position: relative;
+  float: right;
+  margin: 0;
+  background-color: black;
+}
+
+.addtask form {
+  float: left;
+}
+
+.todo {
+  background-color: rgb(195, 195, 196);
+  height: 100px;
+  margin: 25px 0 0 0;
+  border-left-style: solid;
+  border-width: 4px;
+  position: relative;
+}
+
+.green-border {
+  border-color: #50C9C6;
+}
+
+.red-border {
+  border-color: #D15159;
+}
+
+.todo button {
+  background-color: rgb(214, 219, 212);
+  float: left;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
+  border-radius: 30px;
+  margin-top: ;
+  display: block;
+}
+
+.todo h3 {
+  float:left;
+  margin-left: 80px;
+  font-size: 22px;
+  line-height: 58px;
+}
+  border-color: #D15159;
+}
+
+.todo button {
+  background-color: rgb(214, 219, 212);
+  float: left;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
+  border-radius: 30px;
+  margin-top: ;
+  display: block;
+}
+
+.todo h3 {
+  float:left;
+  margin-left: 80px;
+  font-size: 22px;
+  line-height: 58px;
+}
