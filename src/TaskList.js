@@ -49,11 +49,14 @@ class TaskList extends React.Component {
   render() {
       return (
         <div>
-        <ul>
-          {this.state.tasks.map(this.renderTask.bind(this))}
-        </ul>
-            <AddTaskForm onSubmit={this.onAddTask.bind(this)}/>
-          </div>
+        <AddTaskForm onSubmit={this.onAddTask.bind(this)}/>
+        <h2>Still needs some doing</h2>
+          <ul>
+            {this.state.tasks.map(this.renderTask.bind(this))}
+          </ul>
+
+        <h2>done!</h2>
+        </div>
       );
     }
   }
