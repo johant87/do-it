@@ -14,15 +14,15 @@ class App extends React.Component {
   componentDidMount(){
       // the jQuery.get callback will create a new context (this), so we need to remember what 'this'
       var self = this;
-      jQuery.getJSON("https:www.dry-shelf-45398.herokuapp.com/tasks", function(data){
+      jQuery.getJSON("https://dry-shelf-45398.herokuapp.com/tasks.json", function(data){
           self.setState({
               tasks: data.tasks
           });
       });
   }
 
-  renderTask(title) {
-    return <Task title={title} /> ;
+  renderTask(task) {
+    return <Task title={task.title} /> ;
   }
 
   onAddTask(task){
@@ -37,7 +37,7 @@ class App extends React.Component {
   saveData(tasks){
       jQuery.ajax({
           type: "POST",
-          url: "https:www.dry-shelf-45398.herokuapp.com/tasks",
+          url: "https://dry-shelf-45398.herokuapp.com/tasks.json",
           data: JSON.stringify({
               tasks: tasks
           }),
