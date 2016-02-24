@@ -1,4 +1,5 @@
 import React from 'react';
+import jQuery from 'jquery';
 
 class Project extends React.Component {
     constructor(){
@@ -14,19 +15,22 @@ class Project extends React.Component {
 
     }
 
+
     toggleStatus(event){
+
            this.setState({
            finished: !this.state.finished
            });
-           this.updateData(finished)
+           let newState = this.state
+           this.updateData(newState)
          }
 
          updateData(finished){
              jQuery.ajax({
                  type: "PUT",
-                 url: "https://dry-shelf-45398.herokuapp.com/projects.json",
+                 url: "https://dry-shelf-45398.herokuapp.com/projects" + this.props.id + ".json",
                  data: JSON.stringify({
-                     finished: finished
+                     project: finished
                  }),
                  contentType: "application/json",
                  dataType: "json"
