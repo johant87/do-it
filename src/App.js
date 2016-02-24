@@ -31,15 +31,15 @@ class App extends React.Component {
     this.setState({
       tasks: newTasks
     });
-    this.saveData(newTasks);
+    this.saveData(newTask);
   }
 
-  saveData(tasks){
+  saveData(task){
       jQuery.ajax({
           type: "POST",
           url: "https://dry-shelf-45398.herokuapp.com/tasks.json",
           data: JSON.stringify({
-              tasks: tasks
+              task: task
           }),
           contentType: "application/json",
           dataType: "json"
