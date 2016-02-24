@@ -8,22 +8,20 @@ class Task extends React.Component {
         };
     }
 
-
-    changeStatus(event){
-      this.setState({
-        title: "done"
-      });
-    }
-
+    toggleStatus(event){
+           this.setState({
+           finished: !this.state.finished
+           });
+         }
 
     render() {
         return (
 
                 <li>{this.props.title}
                 <button onClick=
-                {this.changeStatus.bind(this)}>
-                task done
-                </button>
+                {this.toggleStatus.bind(this)}>
+                 {this.state.finished ? "1" : "2"}
+             </button>
                 </li>
         );
     }
