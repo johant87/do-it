@@ -4,11 +4,19 @@ import jQuery from 'jquery';
 class Project extends React.Component {
     constructor(){
         super();
-        this.state = {
-          title: "Project"
-        };
     }
 
+    componentDidMount() {
+      this.setState({
+        id: this.props.id,
+        title: this.props.title,
+        body: this.props.body,
+        finished: this.props.finished,
+        createdAt: this.props.createdAt,
+        updatedAt: this.props.updatedAt
+
+      });
+    }
 
     showProject(event){
       event.preventDefault();
@@ -17,7 +25,6 @@ class Project extends React.Component {
 
 
     toggleStatus(event){
-
            this.setState({
            finished: !this.state.finished
            });
