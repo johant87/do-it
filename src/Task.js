@@ -11,10 +11,19 @@ class Task extends React.Component {
 
     changeStatus(event){
       this.setState({
-        title: "done"
+        status: "done"
       });
     }
 
+    showStatus(){
+      return ("dit werkt")
+      // if (status === false){
+      //   return("ok, this task is done")
+      // }    //i.p.v. status is 'done' een betere naam
+      // else{
+      //   return("done?")
+      // }
+    }
 
     render() {
         return (
@@ -22,7 +31,8 @@ class Task extends React.Component {
                 <li>{this.props.title}
                 <button onClick=
                 {this.changeStatus.bind(this)}>
-                task done
+                  {this.showStatus}
+                        //Next, I want to use the function 'showStatus' above that shows the correct status.
                 </button>
                 </li>
         );
