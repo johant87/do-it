@@ -12,7 +12,7 @@ class TaskList extends React.Component {
   }
 
   componentDidMount(){
-      // the jQuery.get callback will create a new context (this), so we need to remember what 'this'
+      // the jQuery.get callback will create a new context (this), so we need to remember what our 'this' is.
       var self = this;
       jQuery.getJSON("https://dry-shelf-45398.herokuapp.com/tasks.json", function(data){
           self.setState({

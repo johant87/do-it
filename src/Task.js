@@ -4,25 +4,20 @@ class Task extends React.Component {
     constructor(){
         super();
         this.state = {
-          title: "test"
+          title: "test",
+          completed: false
         };
     }
 
 
-    changeStatus(event){
+    toggleStatus(event){
       this.setState({
-        status: "done"
+        completed: !this.state.completed
       });
     }
 
-    showStatus(){
-      return ("dit werkt")
-      // if (status === false){
-      //   return("ok, this task is done")
-      // }    //i.p.v. status is 'done' een betere naam
-      // else{
-      //   return("done?")
-      // }
+    showSomeText(){
+      return("Some text")
     }
 
     render() {
@@ -30,14 +25,15 @@ class Task extends React.Component {
 
                 <li>{this.props.title}
                 <button onClick=
-                {this.changeStatus.bind(this)}>
-                  {this.showStatus}
-                        //Next, I want to use the function 'showStatus' above that shows the correct status.
+                {this.toggleStatus.bind(this)}>
+
+                  {this.state.completed ? "Oh not done!" : "Yeah that's done"}
+
                 </button>
                 </li>
         );
     }
 
 }
-
+  // {showSomeText}
 export default Task;
