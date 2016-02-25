@@ -1,39 +1,20 @@
 import React from 'react';
-// import jQuery from 'jquery';
-import Task from './Task';
-import AddTaskForm from './AddTaskForm';
+import jQuery from 'jquery';
+import ProjectList from './ProjectList';
 
 class App extends React.Component {
   constructor(){
     super();
-    this.state = {
-      tasks: ["Do something", "Right now!", "DO IT!" , "DO IT!"]
-    };
-  }
-
-  renderTask(title) {
-    return <Task title={title} /> ;
-  }
-
-  onAddTask(task){
-    var currentTasks = this.state.tasks;
-    var newTasks = currentTasks.concat(task);
-    this.setState({
-      tasks: newTasks
-
-    });
   }
 
   render() {
-      return (
-        <div>
-        <ul>
-          {this.state.tasks.map(this.renderTask.bind(this))}
-        </ul>
-              <AddTaskForm onSubmit={this.onAddTask.bind(this)}/>
-          </div>
+    return (
+      <div>
+        <h1>Pick your Project</h1>
+        < ProjectList />
+      </div>
       );
-    }
+  }
 }
 
 export default App;
