@@ -1,0 +1,98 @@
+body {
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.4em;
+    background-color: #272F36;
+    color: #4d4d4d;
+    margin: 0 auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    font-weight: 300;
+}
+li {
+list-style-type: none;
+}
+
+.projects {
+  background-color: #13171b;
+  position: fixed;
+  padding: 20px;
+  width: 500px;
+  height: 100%;
+}
+
+.projects h2, h1, h3, ul, li {
+  color: #FEFAFA;
+}
+
+.profile h1, h2, h3, ul, li {
+  color: #FEFAFA;
+}
+
+.profile h3 {
+margin: 15px 0 0 15px;
+padding: 15px 0 0 10px;
+}
+
+.avatar {
+  height: 80px;
+  width: 80px;
+  margin-right: 30px;
+  border: 0 solid;
+  border-radius: 40px;
+  float: left;
+}
+
+.profile .tasksleft {
+  float: left;
+  margin: 10px 10px 0 10px;
+  color: #FEFAFA;
+}
+
+.projectlist .form-control{
+  background-color: #1f2429;
+  border: 0;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  color: #FEFAFA;
+}
+
+.submitbtn_projects {
+
+
+}
+.form-control::-webkit-input-placeholder { color: white; }
+.form-control:-moz-placeholder { color: white; }
+.form-control::-moz-placeholder { color: white; }
+.form-control:-ms-input-placeholder { color: white; }
+.addtask .form-control{.addtask{
+  background-color: #F96868;
+  height: 100px;
+  padding: 0;
+  margin: 50px 0 0 0;
+  display: block;
+  position: relative;
+}
+
+.projectlistitem {
+  margin: 20px 0 10px 0;
+  font: 20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.projectlistitem {
+  height: 50px;
+  width: 100%;
+}
+
+.submitbtn_projects {
+  height: 20px;
+  width: 20px;
+  display: block;
+  position: relative;
+  float: right;
+  margin: 0;
+  border: none;
+  float: left;
+  background-color: #1f2429;
+  transition: 0.3s ease-in;
+}

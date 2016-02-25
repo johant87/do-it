@@ -75,11 +75,9 @@ class ProjectItem extends React.Component {
   render() {
     console.log(this.state.title)
     return(
-        <li>
+        <li className="projectlistitem">
           {this.state.title}
-          <button onClick={this.toggleStatus.bind(this)}>
-            {this.state.finished ? "Oh not done!" : "Yeah that's done"}
-          </button>
+        
         </li>
     );
   }

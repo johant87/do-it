@@ -11,7 +11,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Pick your Project</h1>
         < ProjectList />
       </div>
       );
