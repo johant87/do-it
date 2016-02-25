@@ -15,14 +15,14 @@ class ProjectItem extends React.Component {
     });
   }
 
-  getOldState(){
-    let oldState = {
-	     	id: this.state.id,
-	     	title: this.state.title,
-	     	finished: this.state.finished
-    };
-    return oldState;
-  }
+  // getOldState(){
+  //   let oldState = {
+	//      	id: this.state.id,
+	//      	title: this.state.title,
+	//      	finished: this.state.finished
+  //   };
+  //   return oldState;
+  // }
 
   toggleStatus(event) {
     let component = this;
@@ -76,7 +76,10 @@ class ProjectItem extends React.Component {
   render() {
     console.log(this.state.title)
     return(
-        <h4><Link to={`/projects/${this.state.id}`}>{this.state.title}</Link></h4>
+        <h4><Link to={`/projects/${this.state.id}`}>{this.state.title}</Link><button onClick=
+        {this.toggleStatus.bind(this)}>
+         {this.state.finished ? "click here if not done" : "click here if its done"}
+     </button></h4>
     );
   }
 }

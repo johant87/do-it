@@ -1,7 +1,7 @@
 import React from 'react';
 import jQuery from 'jquery';
-import TaskItem from 'TaskItem';
-import TaskForm from 'TaskForm';
+import TaskItem from './TaskItem';
+import TaskForm from './TaskForm';
 
 class TaskList extends React.Component {
   constructor() {
@@ -13,10 +13,10 @@ class TaskList extends React.Component {
   }
 
   showTasks(event) {
-    let projectId = this.props.getProjectId();
+    let projectId = this.props.projectId;
     let component = this;
 
-    jQuery.getJSON(`https://dry-shelf-45398.herokuapp.com/projects/${projectId}.json`, function(data) {
+    jQuery.getJSON("https://dry-shelf-45398.herokuapp.com/projects/" + projectId + "/tasks", function(data) {
       console.log(data);
 
       component.setState({
@@ -26,17 +26,17 @@ class TaskList extends React.Component {
   }
 
   componentDidMount() {
-    this.showtasks();
+    this.showTasks();
   }
 
   render() {
     return (
       <div>
-        <TaskForm onChange={this.showTasks.bind(this)} projectId={this.props.getprojectId()} />
+        <TaskForm onChange={this.showTasks.bind(this)} projectId={this.props.projectId} />
         <ul>
-          {this.state.tasks.map(function(todo, i) {
+          {this.state.tasks.map(function(task, i) {
             return(
-              <TaskItem key={task.id} id={task.id} title={task.title} finished={task.finished} projectId={task.project_id}  onChange={this.showtasks.bind(this)} />
+              <TaskItem key={task.id} id={task.id} title={task.title} finished={task.finished} projectId={task.project_id}  onChange={this.showTasks.bind(this)} />
             );
           }, this)}
         </ul>

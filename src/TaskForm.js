@@ -14,14 +14,14 @@ class TaskForm extends React.Component {
     let projectId = this.props.projectId;
 
     let newTask = {
-      id: null,
-      title: title,
-      finished: false
+      // id: null,
+      title: title
+      // finished: false
     };
 
     jQuery.ajax({
       type: "POST",
-      url: `https://dry-shelf-45398.herokuapp.com/projects/${projectId}/tasks.json`,
+      url: "https://dry-shelf-45398.herokuapp.com/projects/" + projectId + "/tasks.json",
       data: JSON.stringify({
           task: newTask
       }),
@@ -43,11 +43,11 @@ class TaskForm extends React.Component {
       <div>
         <form onSubmit={this.createTask.bind(this)}>
               <input type="text" ref="newTaskInput" placeholder="create a new task!" />
-              <button type="submit" className="btn btn-primary">add task</button>
+              <button type="submit">add task</button>
         </form>
       </div>
     );
   }
 }
 
-export default TodoForm;
+export default TaskForm;

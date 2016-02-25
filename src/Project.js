@@ -19,11 +19,11 @@ class Project extends React.Component {
   }
 
   fetchProject() {
-
+    let projectId = this.props.params.projectId;
     let component = this;
-    let projectId = component.getProjectId();
 
-    jQuery.getJSON(" https://dry-shelf-45398.herokuapp.com/" + projectId + ".json", function(data) {
+
+    jQuery.getJSON(" https://dry-shelf-45398.herokuapp.com/projects/" + projectId + ".json", function(data) {
       console.log(data);
 
       component.setState({
@@ -36,7 +36,7 @@ class Project extends React.Component {
     return (
       <div>
         <h1>{this.state.project.title}</h1>
-        <TaskList projectId={this.getProjectId()} />
+        <TaskList projectId={this.props.params.projectId} />
       </div>
     );
   }
