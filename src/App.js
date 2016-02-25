@@ -1,3 +1,4 @@
+import './stylesheets/components.scss';
 import React from 'react';
 import jQuery from 'jquery';
 import ProjectList from './ProjectList';
