@@ -1,5 +1,6 @@
 import React from 'react';
 import jQuery from 'jquery';
+import { Router, Route, Link, browserHistory } from 'react-router';
 
 class ProjectItem extends React.Component {
   constructor(){
