@@ -34,11 +34,10 @@ class ProjectList extends React.Component {
       <ul>
       {this.state.projects.map(function(project, i) {
         return(
-          <projectItem onChange={this.showProjects.bind(this)} key={project.id} id={project.id} title={project.title} finished={project.finished} />
-        );
-      }, this)}
+          <ProjectItem onChange={this.showProjects.bind(this)} key={project.id} id={project.id} title={project.title} finished={project.finished} />
+          );
+        }, this)}
         <ProjectForm onChange={this.showProjects.bind(this)} />
-
         </ul>
       </div>
     );

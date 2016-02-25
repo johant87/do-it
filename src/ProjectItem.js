@@ -48,7 +48,7 @@ class ProjectItem extends React.Component {
 
 	    jQuery.ajax({
 	      	type: "PUT",
-	      	url: "https://dry-shelf-45398.herokuapp.com/projects" + this.props.id + ".json",
+	      	url: "https://dry-shelf-45398.herokuapp.com/projects/" + this.props.id + ".json",
 	      	data: JSON.stringify({
 	          	project: newState
 	      	}),
@@ -78,7 +78,7 @@ class ProjectItem extends React.Component {
         <li>
           {this.state.title}
           <button onClick={this.toggleStatus.bind(this)}>
-            {this.state.completed ? "Oh not done!" : "Yeah that's done"}
+            {this.state.finished ? "Oh not done!" : "Yeah that's done"}
           </button>
         </li>
     );
