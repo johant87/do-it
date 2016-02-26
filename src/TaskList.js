@@ -29,6 +29,33 @@ class TaskList extends React.Component {
     this.showTasks();
   }
 
+  deleteItem(event) {
+    event.preventDefault();
+    console.log("Destroy clicked!");
+
+    let component = this;
+
+    jQuery.ajax({
+      type: "DELETE",
+      url: "https://dry-shelf-45398.herokuapp.com/projects/" +  this.props.id + ".json",
+      contentType: "application/json",
+      dataType: "json"
+    })
+      .done(function(data) {
+        console.log(data);
+        console.log("Deleted! :)");
+      })
+
+      .fail(function(error) {
+        console.log(error);
+      })
+
+      .always(function() {
+        component.props.onDestroy();
+      });
+  }
+
+
   render() {
     return (
       <div>
@@ -36,7 +63,7 @@ class TaskList extends React.Component {
         <ul>
           {this.state.tasks.map(function(task, i) {
             return(
-              <TaskItem key={task.id} id={task.id} title={task.title} finished={task.finished} projectId={task.project_id}  onChange={this.showTasks.bind(this)} />
+              <TaskItem key={task.id} id={task.id} title={task.title} finished={task.finished} projectId={task.project_id}  onChange={this.showTasks.bind(this)} onDestroy={this.showProjects.bind(this) />
             );
           }, this)}
         </ul>

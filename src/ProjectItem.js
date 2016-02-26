@@ -105,10 +105,12 @@ class ProjectItem extends React.Component {
     return(
         <div>
           <a href="#" className="destroy pull-right" onClick={this.deleteItem.bind(this)}>x</a>
-          <h4><Link to={`/projects/${this.state.id}`}>{this.state.title}</Link><button onClick=
-            {this.toggleStatus.bind(this)}>
-         {this.state.finished ? "click here if not done" : "click here if its done"}
-         </button></h4>
+          <h4>
+            <Link to={`/projects/${this.state.id}`}> {this.state.title} </Link>
+            <button onClick={this.toggleStatus.bind(this)}>
+              {this.state.finished ? "click here if not done" : "click here if its done"}
+            </button>
+          </h4>
         </div>
     );
   }

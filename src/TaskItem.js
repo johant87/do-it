@@ -71,9 +71,9 @@ class TaskItem extends React.Component {
 
   render() {
     return(
+      <a href="#" className="destroy pull-right" onClick={this.deleteItem.bind(this)}>x</a>
       <li>{this.props.title}
-                <button onClick=
-                {this.toggleTaskStatus.bind(this)}>
+            <button onClick= {this.toggleTaskStatus.bind(this)}>
                  {this.state.finished ? "click here if not done" : "click here if its done"}
              </button>
                 </li>

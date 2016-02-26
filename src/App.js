@@ -1,4 +1,4 @@
-import './stylesheets/components.scss';
+//import './stylesheets/components.scss';
 import React from 'react';
 import jQuery from 'jquery';
 
@@ -16,4 +16,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default App
