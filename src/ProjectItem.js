@@ -72,14 +72,38 @@ class ProjectItem extends React.Component {
 	    });
   }
 
+  deleteItem(event) {
+   event.preventDefault();
+   console.log("Destroy clicked!");
+
+   let component = this;
+
+   jQuery.ajax({
+     type: "DELETE",
+     url: "https://dry-shelf-45398.herokuapp.com/projects/" +  this.props.id + ".json",
+     contentType: "application/json",
+     dataType: "json"
+   })
+     .done(function(data) {
+       console.log(data);
+       console.log("Deleted! :)");
+       component.props.onchange();
+     })
+
+     .fail(function(error) {
+       console.log(error);
+     })
+ }
+
   render() {
     console.log(this.state.title)
     return(
-        <li className="projectlink">
-          {this.state.title}
-            <span className="glyphicon glyphicon-trash margin-left"></span>
-        </li>
-
+        <ul className="list-group project-list">
+          <li className="list-group-item">
+            <span className="badge"><button className="glyphicon glyphicon-trash" onClick={this.deleteItem.bind(this)}></button></span>
+            {this.state.title}
+          </li>
+        </ul>
 
     );
   }

@@ -38,8 +38,8 @@ class ProjectList extends React.Component {
       <div className="projects border-radius">
             <ProjectForm onChange={this.showProjects.bind(this)} />
           <div className="project-items">
-            <h2 className="margin-top"><span className="glyphicon glyphicon-inbox margin-right"></span> Projects</h2>
-            <p>
+            <h2 className="margin-top margin-bottom"><span className="glyphicon glyphicon-inbox margin-right"></span> Projects</h2>
+            <p className="margin-bottom">
 
               {this.state.projects.map(function(project, i) {
                 return(
