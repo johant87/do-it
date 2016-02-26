@@ -67,7 +67,29 @@ class TaskItem extends React.Component {
 	    });
   }
 
-
+  deleteItem(event) {
+    event.preventDefault();
+    console.log("Destroy clicked!");
+    let component = this;
+    let id = this.props.id
+    let projectId = this.props.projectId
+    jQuery.ajax({
+      type: "DELETE",
+      url: "https://dry-shelf-45398.herokuapp.com/projects/" + projectId + "/tasks/" + id + ".json",
+      contentType: "application/json",
+      dataType: "json"
+    })
+      .done(function(data) {
+        console.log(data);
+        console.log("Deleted! :)");
+      })
+      .fail(function(error) {
+        console.log(error);
+      })
+      .always(function() {
+        component.props.onDestroy();
+      });
+  }
 
 
   render() {
@@ -78,11 +100,13 @@ class TaskItem extends React.Component {
       <li>
             <p>
               <label className= "slide">
-              <input className="slide-input" id={this.state.id} type="checkbox" ref="finished" checked={this.state.finished ? "finished" : ""} onChange={this.toggleTaskStatus.bind(this)} />
+              <input className="slide-input" id={this.state.id} type="checkbox" ref="finished" checked={this.state.finished ? "finished" : ""} onChange={this.toggleTaskStatus.bind(this)}  />
               <span className="slide-knop"></span>{this.props.title}</label>
+
             </p>
           </li>
       </ul>
+      <button className="glyphicon glyphicon-trash" onClick={this.deleteItem.bind(this)}></button>
     </div>
     );
   }
