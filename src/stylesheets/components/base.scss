@@ -275,15 +275,20 @@ ul .focus {
 }
 
 .task-item li {
-
-  width: 100%;
-
+  white-space: nowrap;
   margin: 50px 0 50px 0;
+  padding-top: 30px;
+  padding-left: 0;
+  list-style: none;
+  padding-start: 0px;
+  margin-before: 0px;
+  padding-bottom: 30px;
+
 }
 
 .tasks-wrapper p {
   font-family: 'Open Sans', sans-serif;
-    line-height: 1.4em;
+    line-height: 1.7em;
     font-weight: normal;
     color: #272F36;
     font-size: 24px;
@@ -292,10 +297,16 @@ ul .focus {
 .slide-input {
   display: none;
 }
+
+.radio label, .checkbox label {
+  padding-left: 0;
+  margin-left: 0;
+}
 .slide-knop {
   background: #E5E5E5;
-  height: 11px;
-  width: 20px;
+  height: 31px;
+  margin-right: 35px;
+  width: 51px;
   border-radius: 999px;
   cursor: pointer;
   position: relative;
@@ -306,8 +317,8 @@ ul .focus {
   top: 2px;
   left: 2px;
   content: '';
-  height: 7px;
-  width: 9px;
+  height: 27px;
+  width: 27px;
   background: #fff;
   border-radius: 999px;
 }
@@ -315,11 +326,11 @@ ul .focus {
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 .slide-knop::before {
-  width: 17px;
+  width: 47px;
 }
 .slide-input:checked + .slide-knop,
 .slide-input:checked + .slide-knop::before {
-  background: #4cd964;
+  background: #F96868;
 }
 .slide-input:checked + .slide-knop::after {
   right: 2px;

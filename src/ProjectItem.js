@@ -101,7 +101,6 @@ class ProjectItem extends React.Component {
 
 
   render() {
-    console.log(this.state.title)
     return(
       <ul className="list-group project-list">
                <li className="list-group-item">

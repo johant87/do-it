@@ -8,7 +8,8 @@ class TaskList extends React.Component {
     super();
 
     this.state = {
-      tasks: []
+      tasks: [],
+      counter: 1
     };
   }
 
@@ -25,6 +26,19 @@ class TaskList extends React.Component {
     });
   }
 
+  tasksLeft(){
+      return this.state.tasks.filter(function(task, i) {
+        return task.finished !== true
+      });
+    }
+
+    checkDone(){
+        let component = this;
+        if (component.tasksLeft().length === 0 && component.props.projectdone === false){
+        component.props.projectFinished();
+        };
+      }
+
   componentDidMount() {
     this.showTasks();
   }
@@ -33,7 +47,7 @@ class TaskList extends React.Component {
     return (
       <div>
 
-      <div className="container margin-top">
+              <div className="container margin-top">
                   <div className="col-md-1"></div>
                     <div className="col-md-7 border-radius">
                             <div className="row">
@@ -49,7 +63,7 @@ class TaskList extends React.Component {
                               <label>
                                 {this.state.tasks.map(function(task, i) {
                                   return(
-                                    <TaskItem key={task.id} id={task.id} title={task.title} finished={task.finished} projectId={task.project_id}  onChange={this.showTasks.bind(this)} />
+                                    <TaskItem key={task.id} id={task.id} title={task.title} finished={task.finished} projectId={task.project_id}  onChange={this.showTasks.bind(this)} checkFinished={this.checkDone.bind(this)} />
                                   );
                                 }, this)}
                                </label>

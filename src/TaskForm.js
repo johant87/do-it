@@ -44,7 +44,7 @@ class TaskForm extends React.Component {
       <div className="col-xs-8 col-sm-11 addtask addproject">
        <form onSubmit={this.createTask.bind(this)}>
          <div className="form-group">
-           <input type="Task" ref="newTaskInput" className="form-control" id="task" placeholder="Add new to do" />
+           <input type="Task" ref="newTaskInput" className="form-control" id="task" placeholder="Add new task" />
          </div>
        </form>
       </div>

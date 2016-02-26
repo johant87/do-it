@@ -59,6 +59,7 @@ class TaskItem extends React.Component {
           finished: data.task.finished
         });
         component.props.onChange();
+        component.props.checkFinished();
       })
 
 	    .fail(function(error) {
@@ -71,15 +72,14 @@ class TaskItem extends React.Component {
 
   render() {
     return(
+
     <div className="tasks-wrapper">
       <ul className="task-item">
       <li>
-            <p>  {this.props.title}
-                <button onClick=
-                {this.toggleTaskStatus.bind(this)}>
-                 {this.state.finished ? "click here if not done" : "click here if its done"}
-             </button>
-
+            <p>
+              <label className= "slide">
+              <input className="slide-input" id={this.state.id} type="checkbox" ref="finished" checked={this.state.finished ? "finished" : ""} onChange={this.toggleTaskStatus.bind(this)} />
+              <span className="slide-knop"></span>{this.props.title}</label>
             </p>
           </li>
       </ul>
