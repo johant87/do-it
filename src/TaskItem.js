@@ -71,14 +71,27 @@ class TaskItem extends React.Component {
 
   render() {
     return(
-      <li>{this.props.title}
+    <div className="tasks-wrapper">
+      <ul className="task-item">
+      <li>
+            <p>  {this.props.title}
                 <button onClick=
                 {this.toggleTaskStatus.bind(this)}>
                  {this.state.finished ? "click here if not done" : "click here if its done"}
              </button>
-                </li>
+
+            </p>
+          </li>
+      </ul>
+    </div>
     );
   }
 }
+
+
+
+
+
+
 
 export default TaskItem;

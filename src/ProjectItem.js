@@ -103,13 +103,16 @@ class ProjectItem extends React.Component {
   render() {
     console.log(this.state.title)
     return(
-        <div>
-          <a href="#" className="destroy pull-right" onClick={this.deleteItem.bind(this)}>x</a>
-          <h4><Link to={`/projects/${this.state.id}`}>{this.state.title}</Link><button onClick=
-            {this.toggleStatus.bind(this)}>
-         {this.state.finished ? "click here if not done" : "click here if its done"}
-         </button></h4>
-        </div>
+      <ul className="list-group project-list">
+               <li className="list-group-item">
+                 <span className="badge"><button className="glyphicon glyphicon-trash" onClick={this.deleteItem.bind(this)}></button></span>
+                 <Link to={`/projects/${this.state.id}`}>{this.state.title}</Link><button className="project-link" onClick=
+                   {this.toggleStatus.bind(this)}>
+
+                </button>
+               </li>
+             </ul>
+
     );
   }
 }

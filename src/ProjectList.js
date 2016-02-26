@@ -30,16 +30,32 @@ class ProjectList extends React.Component {
 
   render() {
     return (
-      <div>
-      <ul>
-      {this.state.projects.map(function(project, i) {
-        return(
-          <ProjectItem onChange={this.showProjects.bind(this)} key={project.id} id={project.id} title={project.title} finished={project.finished} onDestroy={this.showProjects.bind(this)} />
-          );
-        }, this)}
-        <ProjectForm onChange={this.showProjects.bind(this)} />
-        </ul>
-      </div>
+
+      <div className="container margin-top">
+        <div className="row">
+          <div className="col-md-4 bg-dark no-gutter box-shadow">
+
+
+            <div className="projects border-radius">
+                  <ProjectForm onChange={this.showProjects.bind(this)} />
+                <div className="project-items">
+                  <h2 className="margin-top margin-bottom"><span className="glyphicon glyphicon-inbox margin-right"></span> Projects</h2>
+                  <p className="margin-bottom">
+
+                    {this.state.projects.map(function(project, i) {
+                      return(
+                        <ProjectItem onChange={this.showProjects.bind(this)} key={project.id} id={project.id} title={project.title} finished={project.finished} />
+                        );
+                      }, this)}
+                  </p>
+                  </div>
+            </div>
+          </div>
+
+
+        </div>
+  </div>
+
     );
   }
 }

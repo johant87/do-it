@@ -35,7 +35,6 @@ class Project extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.state.project.title}</h1>
         <TaskList projectId={this.props.params.projectId} />
       </div>
     );
