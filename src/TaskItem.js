@@ -66,17 +66,45 @@ class TaskItem extends React.Component {
 	    });
   }
 
+  deleteItem(event) {
+    event.preventDefault();
+    console.log("Destroy clicked!");
 
+    let component = this;
+    let id = this.props.id
+    let projectId = this.props.projectId
+
+    jQuery.ajax({
+      type: "DELETE",
+      url: "https://dry-shelf-45398.herokuapp.com/projects/" + projectId + "/tasks/" + id + ".json",
+      contentType: "application/json",
+      dataType: "json"
+    })
+      .done(function(data) {
+        console.log(data);
+        console.log("Deleted! :)");
+      })
+
+      .fail(function(error) {
+        console.log(error);
+      })
+
+      .always(function() {
+        component.props.onDestroy();
+      });
+  }
 
 
   render() {
     return(
-      <a href="#" className="destroy pull-right" onClick={this.deleteItem.bind(this)}>x</a>
-      <li>{this.props.title}
-            <button onClick= {this.toggleTaskStatus.bind(this)}>
-                 {this.state.finished ? "click here if not done" : "click here if its done"}
-             </button>
-                </li>
+      <div>
+        <a href="#" className="destroy pull-right" onClick={this.deleteItem.bind(this)}>x</a>
+        <li>{this.props.title}
+              <button onClick= {this.toggleTaskStatus.bind(this)}>
+                   {this.state.finished ? "click here if not done" : "click here if its done"}
+               </button>
+        </li>
+      </div>
     );
   }
 }

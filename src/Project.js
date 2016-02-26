@@ -33,34 +33,33 @@ class Project extends React.Component {
     });
   }
 
-  deleteItem(event) {
-    console.log("Destroy clicked!");
-
-    let component = this;
-
-    jQuery.ajax({
-      type: "DELETE",
-      url: "https://dry-shelf-45398.herokuapp.com/projects/" +  this.props.params.projectId + ".json",
-      contentType: "application/json",
-      dataType: "json"
-    })
-      .done(function(data) {
-        console.log(data);
-        console.log("Deleted! :)");
-      })
-
-      .fail(function(error) {
-        console.log(error);
-      })
-
-  }
-
+  // deleteItem(event) {
+  //   console.log("Destroy clicked!");
+  //
+  //   let component = this;
+  //
+  //   jQuery.ajax({
+  //     type: "DELETE",
+  //     url: "https://dry-shelf-45398.herokuapp.com/projects/" +  this.props.params.projectId + ".json",
+  //     contentType: "application/json",
+  //     dataType: "json"
+  //   })
+  //     .done(function(data) {
+  //       console.log(data);
+  //       console.log("Deleted! :)");
+  //     })
+  //
+  //     .fail(function(error) {
+  //       console.log(error);
+  //     })
+  //
+  // }
+  //
 
   render() {
     return (
       <div>
         <h1>{this.state.project.title}</h1>
-        <Link to={`/`} className="delete project" onClick={this.deleteItem.bind(this)}>x</Link>
         <TaskList projectId={this.props.params.projectId} />
       </div>
     );
