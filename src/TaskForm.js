@@ -14,9 +14,9 @@ class TaskForm extends React.Component {
     let projectId = this.props.projectId;
 
     let newTask = {
-      // id: null,
-      title: title
-      // finished: false
+      id: null,
+      title: title,
+      finished: false
     };
 
     jQuery.ajax({
