@@ -34,7 +34,7 @@ class ProjectList extends React.Component {
       <ul>
       {this.state.projects.map(function(project, i) {
         return(
-          <ProjectItem onChange={this.showProjects.bind(this)} key={project.id} id={project.id} title={project.title} finished={project.finished} />
+          <ProjectItem onChange={this.showProjects.bind(this)} key={project.id} id={project.id} title={project.title} finished={project.finished} onDestroy={this.showProjects.bind(this)} />
           );
         }, this)}
         <ProjectForm onChange={this.showProjects.bind(this)} />
