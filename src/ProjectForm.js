@@ -39,10 +39,15 @@ class ProjectForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.createProject.bind(this)}>
-        <input type="text" ref="project" className="form-control" placeholder="Add your project!" />
-          
-      </form>
+      <div className="col-xs-8 col-sm-11 addtask addproject">
+        <form onSubmit={this.createProject.bind(this)}>
+          <div className="form-group">
+            <input type="Task" ref="project" className="form-control" id="task" placeholder="Add new project" />
+          </div>
+        </form>
+      </div>
+
+
     );
   }
 }

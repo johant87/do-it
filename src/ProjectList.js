@@ -30,33 +30,56 @@ class ProjectList extends React.Component {
 
   render() {
     return (
-      <div>
-      <div className="projects">
-        <div className="profile">
-          <img src="https://static-2.springest.com/uploads/user/profile/avatar/1/big_wouter-de-vos-8d4012611e7bab67dd1e84297687e9e1.png" className="avatar"/>
-            <h3>Wouter de Vos</h3>
-              <div className="tasksleft">
-                  3
-                </div>
-                <div className="tasksleft">
-                  6
-                </div>
-        </div>
-        <div className="clearfix"></div>
-          <div className="projectlist">
-          <ProjectForm onChange={this.showProjects.bind(this)} />
-          <h2>Projects</h2>
-          <div className="projectlistitem">
-            {this.state.projects.map(function(project, i) {
-              return(
-                <ProjectItem onChange={this.showProjects.bind(this)} key={project.id} id={project.id} title={project.title} finished={project.finished} />
-                );
-              }, this)}
-          </div>
+<div className="container margin-top">
+  <div className="row">
+    <div className="col-md-4 bg-dark no-gutter box-shadow">
 
+
+      <div className="projects border-radius">
+            <ProjectForm onChange={this.showProjects.bind(this)} />
+          <div className="project-items">
+            <h2 className="margin-top"><span className="glyphicon glyphicon-inbox margin-right"></span> Projects</h2>
+            <p>
+
+              {this.state.projects.map(function(project, i) {
+                return(
+                  <ProjectItem onChange={this.showProjects.bind(this)} key={project.id} id={project.id} title={project.title} finished={project.finished} />
+                  );
+                }, this)}
+            </p>
             </div>
-        </div>
       </div>
+    </div>
+            <div className="container">
+            <div className="col-md-1"></div>
+              <div className="col-md-7 box-shadow border-radius">
+                      <div className="row">
+                        <div className="col-xs-8 col-sm-12  addtask">
+                          <form>
+                            <div className="form-group">
+                              <input type="Task" className="form-control" id="task" placeholder="Add new Todo" />
+                            </div>
+                          </form>
+                        </div>
+
+                  </div>
+
+                  <div className="row">
+                    <div className="col-xs-12 col-sm-12 todo">
+                      <div className="checkbox">
+                        <label>
+                          <input type="checkbox" value="" />
+                           Set up a new git repository
+                         </label>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            <div className="col-md-1"></div>
+        </div>
+  </div>
+</div>
+
     );
   }
 }

@@ -75,10 +75,12 @@ class ProjectItem extends React.Component {
   render() {
     console.log(this.state.title)
     return(
-        <li className="projectlistitem">
+        <li className="projectlink">
           {this.state.title}
-        
+            <span className="glyphicon glyphicon-trash margin-left"></span>
         </li>
+
+
     );
   }
 }
