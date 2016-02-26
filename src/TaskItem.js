@@ -14,8 +14,10 @@ class TaskItem extends React.Component {
     });
   }
 
-  toggleStatus(event) {
+  toggleTaskStatus(event) {
+    let projectId = this.props.projectId
     let component = this;
+
 
 
 		let oldState = {
@@ -36,10 +38,11 @@ class TaskItem extends React.Component {
 		let newState = jQuery.extend(oldState, changedState);
 
 	    this.setState(newState);
+      let id = this.props.id
 
 	    jQuery.ajax({
 	      	type: "PUT",
-	      	url: "https://dry-shelf-45398.herokuapp.com/projects/${this.props.project_id}/tasks/${this.props.id}.json",
+	      	url: "https://dry-shelf-45398.herokuapp.com/projects/" + projectId + "/tasks/" + id + ".json",
 	      	data: JSON.stringify({
 	          	task: newState
 	      	}),
@@ -68,15 +71,14 @@ class TaskItem extends React.Component {
 
   render() {
     return(
-      <li className={this.getClassName()}>
-        <a href="#" className="destroy pull-right" onClick={this.destroyMe.bind(this)}>x</a>
-        <input className="toggle" id={this.state.id} type="checkbox" ref="completed" checked={this.state.completed ? "checked" : ""} onChange={this.toggleChecked.bind(this)} />
-        <label for={this.state.id}>
-          <EditableTextField value={this.state.title} onChange={this.updateTitle.bind(this)} isEditable={!this.state.completed} />
-        </label>
-      </li>
+      <li>{this.props.title}
+                <button onClick=
+                {this.toggleTaskStatus.bind(this)}>
+                 {this.state.finished ? "click here if not done" : "click here if its done"}
+             </button>
+                </li>
     );
   }
 }
 
-export default TodoItem;
+export default TaskItem;
