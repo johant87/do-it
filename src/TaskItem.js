@@ -1,9 +1,15 @@
 import React from 'react';
 import jQuery from 'jquery';
+import EditableTextField from './EditableTextField';
+
 
 class TaskItem extends React.Component {
   constructor() {
     super();
+
+    this.state = {
+      loading: true
+    };
   }
 
   componentDidMount() {
@@ -94,12 +100,69 @@ class TaskItem extends React.Component {
       });
   }
 
+  updateTitle(newTitle) {
+   console.log(newTitle);
+   this.syncState({title: newTitle});
+ }
+
+ syncState(updatedState) {
+     console.log("Syncing state!");
+
+     this.setState({
+       loading: true
+     });
+
+     let component = this;
+
+     let newState = jQuery.extend({
+       id: this.state.id,
+       title: this.state.title,
+       finished: this.state.finished
+     }, updatedState);
+
+     this.setState(newState);
+
+     console.log(newState);
+
+     jQuery.ajax({
+       type: "PUT",
+       url: `https://dry-shelf-45398.herokuapp.com/projects/${this.props.projectId}/tasks/${this.props.id}.json`,
+       data: JSON.stringify({
+           task: newState
+       }),
+       contentType: "application/json",
+       dataType: "json"
+     })
+       .done(function(data) {
+         console.log(data);
+
+         component.setState({
+           id: data.task.id,
+           title: data.task.title,
+           finished: data.task.fnished,
+           createdAt: data.task.created_at,
+           updatedAt: data.task.updated_at
+         });
+       })
+
+       .fail(function(error) {
+         console.log(error);
+       })
+
+       .always(function() {
+         component.setState({
+           loading: false
+         });
+         component.props.onChange();
+       });
+   }
 
   render() {
     return(
       <div>
         <a href="#" className="destroy pull-right" onClick={this.deleteItem.bind(this)}>x</a>
-        <li>{this.props.title}
+        <EditableTextField value={this.state.title} onChange={this.updateTitle.bind(this)} isEditable={!this.state.completed} />
+        <li>
               <button onClick= {this.toggleTaskStatus.bind(this)}>
                    {this.state.finished ? "click here if not done" : "click here if its done"}
                </button>
