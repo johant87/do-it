@@ -4,7 +4,13 @@ import jQuery from 'jquery';
 class TaskItem extends React.Component {
   constructor() {
     super();
+    this.state = {
+      id: null,
+      title: '',
+    }
   }
+
+
 
   componentDidMount() {
     this.setState({
@@ -95,18 +101,16 @@ class TaskItem extends React.Component {
   render() {
     return(
 
-    <div className="tasks-wrapper">
-      <ul className="task-item">
-      <li>
-            <p>
-              <label className= "slide">
-              <input className="slide-input" id={this.state.id} type="checkbox" ref="finished" checked={this.state.finished ? "finished" : ""} onChange={this.toggleTaskStatus.bind(this)}  />
-              <span className="slide-knop"></span>{this.props.title}</label>
+    <div>
+    <ul className="list-group project-list addtask-item">
+             <li className="list-group-item ">
+               <span className="badge"><button onClick={this.deleteItem.bind(this)}><i className="fa fa-trash-o"></i></button></span>
+               <label className= "slide">
+               <input className="slide-input" id={this.state.id} type="checkbox" ref="finished" checked={this.state.finished ? "finished" : ""} onChange={this.toggleTaskStatus.bind(this)}  />
+               <span className="slide-knop"></span>{this.props.title}</label>
+             </li>
+    </ul>
 
-            </p>
-          </li>
-      </ul>
-      <button className="glyphicon glyphicon-trash" onClick={this.deleteItem.bind(this)}></button>
     </div>
     );
   }

@@ -6,9 +6,11 @@ import ProjectForm from './ProjectForm';
 class ProjectList extends React.Component {
   constructor() {
     super();
-
     this.state = {
-      projects: []
+      projects: [],
+      id: null,
+      title: ''
+
     };
   }
 
@@ -33,13 +35,12 @@ class ProjectList extends React.Component {
 
       <div className="container margin-top">
         <div className="row">
-          <div className="col-md-4 bg-dark no-gutter box-shadow">
-
-
+          <div className="col-md-2"></div>
+          <div className="col-md-8 bg-dark no-gutter box-shadow">
             <div className="projects border-radius">
                   <ProjectForm onChange={this.showProjects.bind(this)} />
                 <div className="project-items">
-                  <h2 className="margin-top margin-bottom"><span className="glyphicon glyphicon-inbox margin-right"></span> Projects</h2>
+                  <h2 className="margin-top margin-bottom"><span className="margin-right"><i className="fa fa-inbox"></i></span> Projects</h2>
                   <p className="margin-bottom">
 
                     {this.state.projects.map(function(project, i) {
@@ -51,7 +52,7 @@ class ProjectList extends React.Component {
                   </div>
             </div>
           </div>
-
+          <div className="col-md-2"></div>
 
         </div>
   </div>

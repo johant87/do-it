@@ -1,6 +1,7 @@
 import React from 'react';
 import TaskList from './TaskList';
 import jQuery from 'jquery';
+import { Router, Route, Link, browserHistory } from 'react-router';
 
 class Project extends React.Component {
   constructor() {
@@ -70,7 +71,24 @@ class Project extends React.Component {
   render() {
     return (
       <div>
-      <h1>{this.state.project.title}</h1>
+      <div className="container">
+        <div className="row">
+            <div className="col-md-2"></div>
+
+
+              <div className="col-md-8 bg-dark no-gutter box-shadow">
+                <div className="projects border-radius">
+                    <div className="project-items task-title-remove-padding">
+                      <h2 className="margin-top margin-bottom"><span className="margin-right"><Link to="/" href="#"><i className="fa fa-chevron-left"></i></Link></span> {this.state.project.title}</h2>
+                      </div>
+
+                </div>
+              </div>
+
+
+            <div className="col-md-2"></div>
+        </div>
+      </div>
         <TaskList projectdone={this.state.project.finished}
         projectFinished={this.updateProject} projectId={this.props.params.projectId} />
       </div>

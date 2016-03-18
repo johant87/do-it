@@ -6,10 +6,11 @@ import TaskForm from './TaskForm';
 class TaskList extends React.Component {
   constructor() {
     super();
-
     this.state = {
       tasks: [],
-      counter: 1
+      counter: 1,
+      id: null,
+      title: ""
     };
   }
 
@@ -46,37 +47,43 @@ class TaskList extends React.Component {
   render() {
     return (
       <div>
+      <div className="container margin-top">
+        <div className="row">
+          <div className="col-md-2"></div>
+          <div className="col-md-8 bg-dark no-gutter box-shadow">
+            <div className="projects border-radius">
+                  <TaskForm onChange={this.showTasks.bind(this)} projectId={this.props.projectId} />
+                <div className="project-items">
+                  <p className="margin-bottom">
+                  <div className="checkbox">
+                    <label>
+                      {this.state.tasks.map(function(task, i) {
+                        return(
+                          <TaskItem key={task.id} id={task.id} title={task.title} finished={task.finished} projectId={task.project_id}  onChange={this.showTasks.bind(this)} checkFinished={this.checkDone.bind(this)} onDestroy={this.showTasks.bind(this)} />
+                        );
+                      }, this)}
+                     </label>
+                  </div>
 
-              <div className="container margin-top">
-                  <div className="col-md-1"></div>
-                    <div className="col-md-7 border-radius">
-                            <div className="row">
-                              <div className="col-xs-8 col-sm-12 box-shadow addtask">
-                                <TaskForm onChange={this.showTasks.bind(this)} projectId={this.props.projectId} />
-                              </div>
+                  </p>
+                  </div>
+            </div>
+          </div>
+          <div className="col-md-2"></div>
 
-                        </div>
-
-                        <div className="row">
-                          <div className="col-xs-12 col-sm-12">
-                            <div className="checkbox">
-                              <label>
-                                {this.state.tasks.map(function(task, i) {
-                                  return(
-                                    <TaskItem key={task.id} id={task.id} title={task.title} finished={task.finished} projectId={task.project_id}  onChange={this.showTasks.bind(this)} checkFinished={this.checkDone.bind(this)} onDestroy={this.showTasks.bind(this)} />
-                                  );
-                                }, this)}
-                               </label>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                  <div className="col-md-1"></div>
-              </div>
+        </div>
+      </div>
       </div>
 
     );
   }
 }
+
+
+
+
+
+
+
 
 export default TaskList;

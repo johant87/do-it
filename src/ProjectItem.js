@@ -5,7 +5,12 @@ import { Router, Route, Link, browserHistory } from 'react-router';
 class ProjectItem extends React.Component {
   constructor(){
     super();
+    this.state = {
+      id: null,
+      title: '',
+    }
   }
+
 
   componentDidMount() {
     this.setState({
@@ -104,13 +109,13 @@ class ProjectItem extends React.Component {
     return(
       <ul className="list-group project-list">
                <li className="list-group-item">
-                 <span className="badge"><button className="glyphicon glyphicon-trash" onClick={this.deleteItem.bind(this)}></button></span>
+                 <span className="badge"><button onClick={this.deleteItem.bind(this)}><i className="fa fa-trash-o"></i></button></span>
                  <Link to={`/projects/${this.state.id}`}>{this.state.title}</Link><button className="project-link" onClick=
                    {this.toggleStatus.bind(this)}>
 
                 </button>
                </li>
-             </ul>
+     </ul>
 
     );
   }
