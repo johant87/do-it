@@ -6,9 +6,11 @@ import TaskForm from './TaskForm';
 class TaskList extends React.Component {
   constructor() {
     super();
-
     this.state = {
-      tasks: []
+      tasks: [],
+      counter: 1,
+      id: null,
+      title: ""
     };
   }
 
@@ -25,6 +27,19 @@ class TaskList extends React.Component {
     });
   }
 
+  tasksLeft(){
+      return this.state.tasks.filter(function(task, i) {
+        return task.finished !== true
+      });
+    }
+
+    checkDone(){
+        let component = this;
+        if (component.tasksLeft().length === 0 && component.props.projectdone === false){
+        component.props.projectFinished();
+        };
+      }
+
   componentDidMount() {
     this.showTasks();
   }
@@ -32,17 +47,43 @@ class TaskList extends React.Component {
   render() {
     return (
       <div>
-        <TaskForm onChange={this.showTasks.bind(this)} projectId={this.props.projectId} />
-        <ul>
-          {this.state.tasks.map(function(task, i) {
-            return(
-              <TaskItem key={task.id} id={task.id} title={task.title} finished={task.finished} projectId={task.project_id}  onChange={this.showTasks.bind(this)} />
-            );
-          }, this)}
-        </ul>
+      <div className="container margin-top">
+        <div className="row">
+          <div className="col-md-2"></div>
+          <div className="col-md-8 bg-dark no-gutter box-shadow">
+            <div className="projects border-radius">
+                  <TaskForm onChange={this.showTasks.bind(this)} projectId={this.props.projectId} />
+                <div className="project-items">
+                  <p className="margin-bottom">
+                  <div className="checkbox">
+                    <label>
+                      {this.state.tasks.map(function(task, i) {
+                        return(
+                          <TaskItem key={task.id} id={task.id} title={task.title} finished={task.finished} projectId={task.project_id}  onChange={this.showTasks.bind(this)} checkFinished={this.checkDone.bind(this)} onDestroy={this.showTasks.bind(this)} />
+                        );
+                      }, this)}
+                     </label>
+                  </div>
+
+                  </p>
+                  </div>
+            </div>
+          </div>
+          <div className="col-md-2"></div>
+
+        </div>
       </div>
+      </div>
+
     );
   }
 }
+
+
+
+
+
+
+
 
 export default TaskList;
